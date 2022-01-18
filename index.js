@@ -17,7 +17,7 @@
       }
     }
 
-  } //End of reset()
+  } 
   
   
   shuffle() {
@@ -28,21 +28,21 @@
       this.deck[i] = this.deck[j];
       this.deck[j] = tmp;
     }
-  } //End of shuffle()
+  } 
   
   deal(){
     return this.deck.pop();
-  } //End of deal()
+  } 
   
   isEmpty() {
     return (this.deck.length==0);
-  } //End of isEmpty()
+  } 
   
   length() {
     return this.deck.length;
-  } //End of length()
+  } 
   
-} //End of Deck Class
+} 
 
 class Card {
   constructor(card) {
@@ -55,8 +55,8 @@ class Card {
     this.flipped = false;
   
     var suits = {'Hearts':0, 'Diamonds':13, 'Clubs':26, 'Spades':39 }
-    this.position = suits[this.suit] + this.value; //Position in a sorted deck
-  } //End of Constructor
+    this.position = suits[this.suit] + this.value; 
+  } 
   
   displayCard(placeHolder,flipped=true) {
     this.placeHolder = document.getElementById(placeHolder);
@@ -67,7 +67,7 @@ class Card {
     } else {
       this.placeHolder.style.backgroundPosition = "0px";  
     }
-  } // End of displayCard
+  } 
   
   flip() {
     if (this.flipped) {
@@ -77,9 +77,9 @@ class Card {
       this.placeHolder.style.backgroundPosition = -150*this.position + "px";
       this.flipped=true;  
     }
-  } //End of flip()
+  } 
   
-} //End of Card class
+} 
 
 const deck = new Deck();
 let card1,card2,card3,card4,card5,playerCard1,playerCard2, computersCard1, computersCard2;
@@ -156,9 +156,8 @@ function getHandDetails(hand) {
     return { rank, value: faces.sort(byCountFirst).join("") }
 
     function byCountFirst(a, b) {
-        //Counts are in reverse order - bigger is better
         const countDiff = counts[b] - counts[a]
-        if (countDiff) return countDiff // If counts don't match return
+        if (countDiff) return countDiff 
         return b > a ? -1 : b === a ? 0 : 1
     }
 
@@ -183,6 +182,6 @@ function compareHands(h1, h2) {
     return d1.rank < d2.rank ? "WIN" : "LOSE"
 }
 
-} //End of nextStep()
+} 
 
 deal();
