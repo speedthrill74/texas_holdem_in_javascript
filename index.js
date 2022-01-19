@@ -9,7 +9,7 @@
   reset() {
     this.deck = [];
     const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-    const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
+    const values = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
 
     for (let suit in suits) {
       for (let value in values) {
@@ -113,7 +113,7 @@ function deal() {
   playerCard2.displayCard("computerCard2",true); 
   computersCard2.displayCard("computerCard1",true); 
   computersCard2.displayCard("computerCard2",true); 
-} //End of deal()
+} 
 
 function nextStep(el) {
   if (!card1.flipped) {
@@ -156,8 +156,9 @@ function getHandDetails(hand) {
     return { rank, value: faces.sort(byCountFirst).join("") }
 
     function byCountFirst(a, b) {
+        //Counts are in reverse order - bigger is better
         const countDiff = counts[b] - counts[a]
-        if (countDiff) return countDiff 
+        if (countDiff) return countDiff // If counts don't match return
         return b > a ? -1 : b === a ? 0 : 1
     }
 
@@ -182,6 +183,6 @@ function compareHands(h1, h2) {
     return d1.rank < d2.rank ? "WIN" : "LOSE"
 }
 
-} 
+}
 
 deal();
